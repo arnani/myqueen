@@ -20,11 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         "/mywife/img3.jpeg"
     ];
     const images = [
-        "/mywife/img4.jpeg", ];
+        "/mywife/img4.jpeg",
+    ];
        const images = [
-        "/mywife/img5.jpeg", ];
+        "/mywife/img5.jpeg", 
+       ];
        const images = [
-        "/mywife/img6.jpeg", ];
+        "/mywife/img6.jpeg", 
+       ];
        
     
   let currentIndex = 0;
