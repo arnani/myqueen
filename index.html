@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To My Lovely Wife-to-Be</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Lovely Wife To Be</title>
+  <!-- Google Fonts for stylish typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Envelope Section -->
-  <div id="envelopeContainer" class="envelope">
-    <div class="flap"></div>
-    <div class="body"></div>
-    <div class="shadow"></div>
-    <button id="openButton">Open Me</button>
-  </div>
 
-  <!-- Gallery Section -->
-  <div id="gallery" class="hidden">
-    <button id="prevBtn" class="nav-btn">&#10094; Prev</button>
-    <div class="image-wrapper">
-      <img id="galleryImage" src="" alt="Gallery Image">
+  <!-- Landing Section: Envelope and Title -->
+  <section id="landing">
+    <h1>To my lovely wife to be</h1>
+    <div id="envelopeContainer" class="envelope">
+      <!-- Envelope flap (triangle) -->
+      <div class="envelope-flap"></div>
+      <!-- Envelope body (rectangle) -->
+      <div class="envelope-body"></div>
     </div>
-    <button id="nextBtn" class="nav-btn">Next &#10095;</button>
-  </div>
+    <div id="openButton">Open Me</div>
+  </section>
 
-  <!-- Love Letter Section -->
-  <div id="letter" class="hidden">
+  <!-- Gallery Section: Hidden by default -->
+  <section id="gallery" style="display:none;">
+    <img id="galleryImage" src="" alt="Romantic photo" />
+    <div id="gallery-nav">
+      <button id="prevBtn">❮ Prev</button>
+      <button id="nextBtn">Next ❯</button>
+    </div>
+  </section>
+
+  <!-- Love Letter Section: Hidden by default -->
+  <section id="letter" style="display:none;">
     <div id="letter-content">
-      <p>Your heartfelt message here...</p>
+      <!-- The heartfelt letter text, preserved with line breaks for paragraphs -->
+      <p>Bangaram ninnu entha la miss avutunano kuda cheppaleka potunna nenu – I just miss you very badly and you can’t even imagine how much.</p>
+      <p>Ninnu eppudaite preminchadam start chesano, appati nunchi na life entha happy ga better ga undo telusa. Nuvu navvite naku chala baaga anipistundi; nuvu badhapadite, asal chudalenu nenu; nuvu ediste, asal tattukolenu nenu.</p>
+      <p>Naku konni sarlu feelings chupinchadam raadu, Nishu – I can’t express some feelings, but I feel everything that’s happening to you whether it’s happy or sad. You have been with me from the beginning till now and will be in the future. I can’t imagine a better future without you in my life. I want you to be my life.</p>
+      <p>Na heart ni kosame, na prema ni kosame, prathi okka alochana anni ni kosame, Nishu. Nuvu jagrathaga unte naku inka em avasaram ledu, adi chalu.</p>
+      <p>Nuvu lekunda picchi odini avtunna, telusa nenu – mental ekkestundi ee madhya. Every moment, nuvve gurtostunnav (I keep remembering you every moment).</p>
+      <p>Nenu ninnu chupimani adugutanu kada (you know what I mean) – chudali anipisthundi nenu, like I want to see you completely. I know nenu ni deggara unte ade possible avtadi ani, and online lo privacy sarigga undadu and aa intimacy undadu. Kani emo adagalanipinchindi naku, so nenu ekuva sarlu adigi ninnu bother ches tunna anipinchindi.</p>
+      <p>I’ll be more myself from now on, but I can’t keep my mind off things sometimes. Kani okati matram gurtupettuko Nishu – I’ll always be there for you, whether in happiness or sadness, sickness or health. I’ll always, always be there for you, bangaram.</p>
+      <p>I miss you so much. I love you, my queen. ❤️</p>
     </div>
-  </div>
+  </section>
 
-  <!-- Background Music -->
-  <audio id="bg-music" loop>
-    <source src="path-to-your-music-file.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Hidden audio element for background music -->
+  <audio id="bg-music" src="audio/background-music.mp3" loop></audio>
 
+  <!-- Script reference -->
   <script src="/mywife/script.js"></script>
 </body>
 </html>
