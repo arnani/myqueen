@@ -1,3 +1,4 @@
+// JavaScript for interactivity: envelope open, gallery navigation, and section transitions
 document.addEventListener('DOMContentLoaded', () => {
   const envelope = document.getElementById('envelopeContainer');
   const openBtn = document.getElementById('openButton');
@@ -11,11 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Array of gallery image paths
   const images = [
-    'path-to-your-image1.jpg',
-    'path-to-your-image2.jpg',
-    'path-to-your-image3.jpg'
-    // Add more image paths as needed
-  ];
+    "/mywife/img1.jpeg", ];
+    const images = [
+        "/mywife/img2.jpeg",
+    ];
+    const images = [
+        "/mywife/img3.jpeg"
+    ];
+    const images = [
+        "/mywife/img4.jpeg", ];
+       const images = [
+        "/mywife/img5.jpeg", ];
+       const images = [
+        "/mywife/img6.jpeg", ];
+       
+    
   let currentIndex = 0;
 
   // Preload images
@@ -28,15 +39,38 @@ document.addEventListener('DOMContentLoaded', () => {
   function showSlide(index) {
     if (index < images.length) {
       // Show gallery image
-      gallerySection.classList.remove('hidden');
-      letterSection.classList.add('hidden');
-      galleryImage.src = images[index];
-      prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
-      nextBtn.textContent = index === images.length - 1 ? 'Read Letter ❯' : 'Next ❯';
+      gallerySection.style.display = "flex";
+      letterSection.style.display = "none";
+      // Fade out current image, then update
+      galleryImage.style.opacity = 0;
+      setTimeout(() => {
+        galleryImage.src = images[index];
+      }, 300);
+      // When new image loads, fade it in
+      galleryImage.onload = () => {
+        galleryImage.style.opacity = 1;
+      };
     } else {
       // Show love letter section
-      gallerySection.classList.add('hidden');
-      letterSection.classList.remove('hidden');
+      gallerySection.style.display = "none";
+      letterSection.style.display = "flex";
+      // Fade in the letter content
+      setTimeout(() => {
+        letterContent.style.opacity = 1;
+      }, 50);
+    }
+    // Update navigation buttons
+    if (index === 0) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "inline-block";
+    }
+    if (index < images.length) {
+      nextBtn.style.display = "inline-block";
+      nextBtn.textContent = (index === images.length - 1) ? "Read Letter ❯" : "Next ❯";
+    } else {
+      // On letter, hide Next
+      nextBtn.style.display = "none";
     }
   }
 
@@ -46,17 +80,24 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.play();
     // Open envelope animation
     envelope.classList.add('open');
-    // Hide the open button
-    openBtn.style.display = 'none';
-    // After animation, show the gallery
+    // Optionally fade out landing text
+    openBtn.style.opacity = 0;
+    // After animation, hide landing and show gallery
     setTimeout(() => {
+      document.getElementById('landing').style.display = 'none';
+      // Show first image
+      currentIndex = 0;
       showSlide(currentIndex);
-    }, 500); // matches the envelope flap animation duration
+    }, 700); // matches the envelope flap animation duration
   });
 
   // Next button click
   nextBtn.addEventListener('click', () => {
-    if (currentIndex < images.length) {
+    if (currentIndex < images.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    } else if (currentIndex === images.length - 1) {
+      // If at last image, move to letter
       currentIndex++;
       showSlide(currentIndex);
     }
@@ -64,12 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Prev button click
   prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
+    if (currentIndex > 0 && currentIndex <= images.length) {
+      // If currently on letter or a later image, go back
       currentIndex--;
       showSlide(currentIndex);
     }
   });
-
-  // Initialize by showing the first slide
-  showSlide(currentIndex);
 });
